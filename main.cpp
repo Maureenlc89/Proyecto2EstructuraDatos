@@ -24,6 +24,13 @@ int main(int argc, char** argv) {
     cout<<"Prueba repo ";
     cout<<"Prueba repo 2 ";
     cout<< "Prueba 3";
+    /*
+     * Pasos 
+     * 1- Click derecho git : Commit
+     * 2- Click derecho git : Add
+     * 3- Click derecho git : Remote - Push
+     * *** Pull sirve para actualizar el repositorio, baja cambios.
+     */
     return 0;
 }
 
