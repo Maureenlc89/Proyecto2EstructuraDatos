@@ -14,8 +14,6 @@ NodoPila::NodoPila() {
     setCabeza(NULL);
 }
 
-NodoPila::NodoPila(const NodoPila& orig) {
-}
 
 NodoPila::~NodoPila() {
 }
