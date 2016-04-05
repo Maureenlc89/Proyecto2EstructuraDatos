@@ -7,6 +7,7 @@
 
 #ifndef NODOLISTASIMPLE_H
 #define	NODOLISTASIMPLE_H
+#include <iostream>
 
 class NodoListaSimple {
 public:

@@ -7,6 +7,7 @@
 
 #ifndef NODOPILA_H
 #define	NODOPILA_H
+#include <iostream>
 
 class NodoPila {
 public:

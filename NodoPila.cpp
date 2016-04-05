@@ -8,6 +8,10 @@
 #include "NodoPila.h"
 
 NodoPila::NodoPila() {
+   setLongitud(0);
+    setEstado(false);
+    setPrecio(0.0);
+    setCabeza(NULL);
 }
 
 NodoPila::NodoPila(const NodoPila& orig) {
@@ -17,19 +21,26 @@ NodoPila::~NodoPila() {
 }
 
 int NodoPila::getLongitud(){
+    return longitud;
 }
 bool NodoPila::getEstado(){
-    
+    return estado;
 }
 double NodoPila::getPrecio(){
+    return precio;
 }
 NodoPila * NodoPila::getCabeza(){
+    return cabeza;
 }
-void NodoPila::setLongitud(int){
+void NodoPila::setLongitud(int plongitud){
+    longitud = plongitud;
 }
-void NodoPila::setEstado(bool){
+void NodoPila::setEstado(bool pestado){
+    estado = pestado;
 }
-void NodoPila::setPrecio(double){
+void NodoPila::setPrecio(double pprecio){
+    precio = pprecio;
 }
-void NodoPila::setCabeza(NodoPila *){
+void NodoPila::setCabeza(NodoPila * pcabeza){
+    cabeza = pcabeza;
 }
