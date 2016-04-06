@@ -18,6 +18,7 @@ using namespace std;
 
 int obtenerOpcion(void);
 bool ejecutar(int);
+void mostrarVIP();
 
 int main(int argc, char** argv) {
 
@@ -30,37 +31,28 @@ int main(int argc, char** argv) {
      * *** Pull sirve para actualizar el repositorio, baja cambios.
      */
 
-    //PRUEBA MOSTRAR MATRIZ
-    //    int vip [5][2] = {
-    //        {0, 0},
-    //        {1, 1},
-    //        {2, 2},
-    //        {3, 3},
-    //        {4, 4}};
-    //
-    //    for (int i = 0; i < 5; i++) {
-    //        for (int j = 0; j < 2; j++) {
-    //            cout << "|" << vip[i][j];
-    //        }
-    //            cout << "|" << endl;
-    //    }
+
 
 
     int opcion;
     string resul;
     bool salir = false;
-    string menu[4] = {
+    string menu[8] = {
 
         "1.Reservar VIP ",
         "2.Reservar Preferencial ",
         "3.Reservar General",
-        "4.Salir"
+        "4.Pagar entradas reservadas",
+        "5.Pagar entradas",
+        "6.Liberar reservaciones",
+        "7.Iniciar la función",
+        "8.Salir"
     };
 
 
 
     do {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 8; i++) {
 
             cout << menu[i] << endl;
         }
@@ -85,6 +77,7 @@ bool ejecutar(int opcion) {
 
         case 1:
             cout << "VIP" << endl;
+            mostrarVIP();
             break;
         case 2:
             cout << "Preferencial" << endl;
@@ -93,7 +86,19 @@ bool ejecutar(int opcion) {
             cout << "general" << endl;
             break;
         case 4:
-            cout << "adios" << endl;
+
+            break;
+        case 5:
+
+            break;
+        case 6:
+
+            break;
+        case 7:
+
+            break;
+        case 8:
+            cout << "<< Ha salido del sistema >>" << endl;
             salir = true;
             break;
 
@@ -105,4 +110,39 @@ bool ejecutar(int opcion) {
     return salir;
 }
 
+void mostrarVIP() {
 
+    int filas [6] = {0, 1, 2, 3, 4, 5};
+    int columnas[2] = {1, 2};
+    int vip [6][2] = {
+        {0, 0},
+        {0, 0},
+        {0, 0},
+        {0, 0},
+        {0, 0}
+    };
+
+    for (int i = 0; i < 6; i++) {
+
+        vip[0][0] = filas[i];
+        cout << vip[0][0];
+
+        for (int j = 0; j < 2; j++) {
+            vip[0][j] = columnas[j];
+
+            cout << "|" << vip[i][j];
+        }
+
+        cout << "|" << endl;
+
+    }
+
+    int filaSelected;
+    int columnaSelected;
+
+    cout << "Ingrese la fila de la posicion que desea reservar" << endl;
+    cin >>filaSelected;
+    cout << "Ingrese la columna de la posicion que desea reservar" << endl;
+    cin >>columnaSelected;
+
+}
