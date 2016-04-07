@@ -27,7 +27,8 @@ public:
     bool reservarEspacio();
     bool esVacia(void);
     void mostrarLista();
-
+    void pagarReservas(int);
+    double obtenerMonto(int);
 
 private:
     int longitud;

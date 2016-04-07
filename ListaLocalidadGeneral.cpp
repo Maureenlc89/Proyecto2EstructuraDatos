@@ -12,6 +12,7 @@
  */
 
 #include "ListaLocalidadGeneral.h"
+#include "NodoListaSimple.h"
 
 ListaLocalidadGeneral::ListaLocalidadGeneral() {
 
@@ -48,11 +49,20 @@ bool ListaLocalidadGeneral::reservarEspacio() {
         return false;
     } else {
         NodoListaSimple* nuevo = new NodoListaSimple();
-        if (this->esVacia()) {
+
+        if (getCabeza() == NULL) {
+
+            nuevo->setSiguiente(getCabeza());
             setCabeza(nuevo);
         } else {
-            nuevo->getSiguiente();
-            setCabeza(nuevo);
+
+            NodoListaSimple* anterior = getCabeza();
+
+            while (anterior->getSiguiente() != NULL) {
+                anterior = anterior->getSiguiente();
+            }
+            nuevo->setSiguiente(anterior->getSiguiente());
+            anterior ->setSiguiente(nuevo);
         }
 
         longitud++;
@@ -70,26 +80,66 @@ void ListaLocalidadGeneral::mostrarLista() {
 
         NodoListaSimple *aux = getCabeza();
         int i = 0;
+
         cout << "Informacion de la reserva" << endl;
         while (aux != NULL) {
-            cout << "Posicion: " << getLongitud() << endl;
+            cout << "Posicion: " << i + 1 << endl;
             cout << "Precio: " << aux->getPrecio() << endl;
             if (aux->getEstado() == true) {
                 cout << "Estado: Reservado" << endl;
+            } else {
+                cout << "Estado: Cancelado" << endl;
+
             }
             if (aux->getPagado() == false) {
                 cout << "Pendiente de pago" << endl;
             } else {
                 cout << "Sin cargos pendientes" << endl;
             }
-
+            cout << " " << endl;
             i++;
             aux = aux->getSiguiente();
         }
+        cout << "" << endl;
         cout << "Numero espacios disponibles: " << 50 - getLongitud() << endl;
         cout << " " << endl;
 
     } else {
         cout << "La lista se encuentra vacia." << endl;
     }
+
+}
+double ListaLocalidadGeneral::obtenerMonto(int cantReservasPorPagar){
+     NodoListaSimple* aux = getCabeza();
+    double total = aux->getPrecio() * cantReservasPorPagar;
+    return total;
+
+}
+
+void ListaLocalidadGeneral::pagarReservas(int cantReservasPorPagar) {
+
+    NodoListaSimple* aux = getCabeza();
+
+
+    for (int i = 0; i < cantReservasPorPagar; i++) {
+
+        if (!esVacia()) {
+            if (aux->getSiguiente() != NULL) {
+
+                if (aux->getPagado() == true) {
+                    aux = aux->getSiguiente();
+                    cantReservasPorPagar=cantReservasPorPagar+1;
+                } else {
+                    aux->setEstado(false);
+                    aux->setPagado(true);
+                    aux = aux->getSiguiente();
+                    
+                }
+            }
+        } else {
+            cout << "No hay reservas" << endl;
+        }
+
+    }
+
 }

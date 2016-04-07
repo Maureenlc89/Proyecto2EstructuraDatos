@@ -29,7 +29,8 @@ int main(int argc, char** argv) {
     /*
      * Pasos 
      * 1- Click derecho git : Commit
-     * 2- Click derecho git : Add
+3
+     * 33     * 2- Click derecho git : Add
      * 3- Click derecho git : Remote - Push
      * *** Pull sirve para actualizar el repositorio, baja cambios.
      */
@@ -96,8 +97,8 @@ bool ejecutar(int opcion) {
                 reservaExitosa = listaGeneral.reservarEspacio();
 
                 if (reservaExitosa == true) {
-                    cout << "Reserva " << i + 1 << " realizada exitosamente" << endl;
-                    listaGeneral.mostrarLista();
+                    cout << i + 1 << "°" << "Reserva " << " realizada exitosamente" << endl;
+
                 } else {
                     cout << "La reserva " << i + 1 << " no se pudo realizar desea ingresar en lista de espera?  1.Si 2.No " << endl;
                     cout << " " << endl;
@@ -109,11 +110,20 @@ bool ejecutar(int opcion) {
                     }
                 }
             }
+            listaGeneral.mostrarLista();
             break;
         case 4:
+            double totalPagar;
+            cout << "Ingrese cuantas reservas desea pagar?" << endl;
+            cin>>cantReservas;
+            totalPagar = listaGeneral.obtenerMonto(cantReservas);
+            cout << "El monto a pagar es de : " << totalPagar<< endl;
+
+            listaGeneral.pagarReservas(cantReservas);
 
             break;
         case 5:
+            listaGeneral.mostrarLista();
 
             break;
         case 6:
@@ -124,6 +134,7 @@ bool ejecutar(int opcion) {
             break;
         case 8:
             cout << "<< Ha salido del sistema >>" << endl;
+
             salir = true;
             break;
 
