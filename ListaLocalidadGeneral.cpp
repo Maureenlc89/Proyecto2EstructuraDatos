@@ -124,7 +124,7 @@ void ListaLocalidadGeneral::pagarReservas(int cantReservasPorPagar) {
     for (int i = 0; i < cantReservasPorPagar; i++) {
 
         if (!esVacia()) {
-            if (aux->getSiguiente() != NULL) {
+            if (aux != NULL) {
 
                 if (aux->getPagado() == true) {
                     aux = aux->getSiguiente();

@@ -113,14 +113,21 @@ bool ejecutar(int opcion) {
             listaGeneral.mostrarLista();
             break;
         case 4:
+            
             double totalPagar;
+            int pagar;
             cout << "Ingrese cuantas reservas desea pagar?" << endl;
             cin>>cantReservas;
             totalPagar = listaGeneral.obtenerMonto(cantReservas);
-            cout << "El monto a pagar es de : " << totalPagar<< endl;
-
-            listaGeneral.pagarReservas(cantReservas);
-
+            cout << "El monto a pagar es de : " << totalPagar << endl;
+            cout << "Desea efectuar el pago? 1.Si 2.No " << endl;
+            cin >> pagar;
+            if (pagar == 1) {
+                listaGeneral.pagarReservas(cantReservas);
+                cout << "Pago efectuado, Gracias ..." << endl;
+            } else {
+                cout << "No se efectuo ningun pago " << endl;
+            }
             break;
         case 5:
             listaGeneral.mostrarLista();
@@ -139,6 +146,7 @@ bool ejecutar(int opcion) {
             break;
 
         default:
+            salir = true;
             break;
 
 
