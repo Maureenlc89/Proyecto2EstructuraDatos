@@ -6,30 +6,33 @@
  */
 
 #ifndef NODOLISTASIMPLE_H
-#define	NODOLISTASIMPLE_H
+#define NODOLISTASIMPLE_H
 #include <iostream>
+using namespace std;
 
 class NodoListaSimple {
 public:
     NodoListaSimple(void);
     virtual ~NodoListaSimple();
     double getPrecio(void);
-    int getLongitud(void);
     bool getEstado(void);
+    bool getPagado(void);
     NodoListaSimple*getSiguiente(void);
     NodoListaSimple*getAnterior(void);
     void setPrecio(double);
-    void setLongitud(int);
     void setEstado(bool);
+    void setPagado(bool);
     void setSiguiente(NodoListaSimple*);
     void setAnterior(NodoListaSimple*);
+
 private:
+
     double precio;
-    int longitud;
     bool estado;
+    bool pagado;
     NodoListaSimple*siguiente;
     NodoListaSimple*anterior;
 };
 
-#endif	/* NODOLISTASIMPLE_H */
+#endif /* NODOLISTASIMPLE_H */
 

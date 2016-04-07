@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/ListaLocalidadGeneral.o \
 	${OBJECTDIR}/NodoListaSimple.o \
 	${OBJECTDIR}/NodoMatriz.o \
 	${OBJECTDIR}/NodoPila.o \
@@ -64,6 +65,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/proyecto2estructuradatos.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/proyecto2estructuradatos ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/ListaLocalidadGeneral.o: ListaLocalidadGeneral.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ListaLocalidadGeneral.o ListaLocalidadGeneral.cpp
 
 ${OBJECTDIR}/NodoListaSimple.o: NodoListaSimple.cpp 
 	${MKDIR} -p ${OBJECTDIR}

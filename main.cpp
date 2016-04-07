@@ -14,8 +14,11 @@
 #include <string>
 #include <cstdlib>
 #include <iostream>
+#include "ListaLocalidadGeneral.h"
+
 using namespace std;
 
+ListaLocalidadGeneral listaGeneral;
 int obtenerOpcion(void);
 bool ejecutar(int);
 void mostrarVIP();
@@ -65,7 +68,7 @@ int main(int argc, char** argv) {
 
 int obtenerOpcion() {
     int opc;
-    cout << "Seleccione la opcion";
+    cout << "Seleccione la opcion" << endl;
     cin >> opc;
 
     return opc;
@@ -83,7 +86,29 @@ bool ejecutar(int opcion) {
             cout << "Preferencial" << endl;
             break;
         case 3:
-            cout << "general" << endl;
+            cout << " << Bienvenido localidad General >>" << endl;
+            int cantReservas;
+            bool reservaExitosa;
+            int colaEspera;
+            cout << "Ingrese cuantos espacios desea reservar?" << endl;
+            cin>>cantReservas;
+            for (int i = 0; i < cantReservas; i++) {
+                reservaExitosa = listaGeneral.reservarEspacio();
+
+                if (reservaExitosa == true) {
+                    cout << "Reserva " << i + 1 << " realizada exitosamente" << endl;
+                    listaGeneral.mostrarLista();
+                } else {
+                    cout << "La reserva " << i + 1 << " no se pudo realizar desea ingresar en lista de espera?  1.Si 2.No " << endl;
+                    cout << " " << endl;
+                    cin>> colaEspera;
+                    if (colaEspera == 1) {
+                        //hacer cola de espera
+                        cout << "en cola de espera" << endl;
+                        cout << " " << endl;
+                    }
+                }
+            }
             break;
         case 4:
 
