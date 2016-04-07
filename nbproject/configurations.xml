@@ -4,7 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Cola.h</itemPath>
       <itemPath>ListaLocalidadGeneral.h</itemPath>
+      <itemPath>NodoCola.h</itemPath>
       <itemPath>NodoListaSimple.h</itemPath>
       <itemPath>NodoMatriz.h</itemPath>
       <itemPath>NodoPila.h</itemPath>
@@ -16,7 +18,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Cola.cpp</itemPath>
       <itemPath>ListaLocalidadGeneral.cpp</itemPath>
+      <itemPath>NodoCola.cpp</itemPath>
       <itemPath>NodoListaSimple.cpp</itemPath>
       <itemPath>NodoMatriz.cpp</itemPath>
       <itemPath>NodoPila.cpp</itemPath>
@@ -44,9 +48,17 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="Cola.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Cola.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ListaLocalidadGeneral.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ListaLocalidadGeneral.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NodoCola.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NodoCola.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="NodoListaSimple.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -83,9 +95,17 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Cola.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Cola.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ListaLocalidadGeneral.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ListaLocalidadGeneral.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NodoCola.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NodoCola.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="NodoListaSimple.cpp" ex="false" tool="1" flavor2="0">
       </item>

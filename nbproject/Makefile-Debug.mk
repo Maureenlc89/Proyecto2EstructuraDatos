@@ -35,7 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Cola.o \
 	${OBJECTDIR}/ListaLocalidadGeneral.o \
+	${OBJECTDIR}/NodoCola.o \
 	${OBJECTDIR}/NodoListaSimple.o \
 	${OBJECTDIR}/NodoMatriz.o \
 	${OBJECTDIR}/NodoPila.o \
@@ -66,10 +68,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/proyecto2estructuradatos.exe: ${OBJEC
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/proyecto2estructuradatos ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/Cola.o: Cola.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Cola.o Cola.cpp
+
 ${OBJECTDIR}/ListaLocalidadGeneral.o: ListaLocalidadGeneral.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ListaLocalidadGeneral.o ListaLocalidadGeneral.cpp
+
+${OBJECTDIR}/NodoCola.o: NodoCola.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NodoCola.o NodoCola.cpp
 
 ${OBJECTDIR}/NodoListaSimple.o: NodoListaSimple.cpp 
 	${MKDIR} -p ${OBJECTDIR}
