@@ -14,17 +14,26 @@
 #ifndef COLA_H
 #define COLA_H
 #include "NodoCola.h"
-
+#include <iostream>
+using namespace std;
 class Cola {
 public:
     Cola();
     Cola(const Cola& orig);
     virtual ~Cola();
+    int getLongitud(void);
+    NodoCola * getFrente(void);
+    NodoCola * getFinal(void);
+    void setLongitud(int);
+    void setFrente(NodoCola*);
+    void setFinal(NodoCola*);
+    void insertarElemento(NodoCola*);
+    void eliminarElemento(void);
 private:
     int longitud;
     NodoCola * frente;
     NodoCola * final;
-   
+
 
 };
 
