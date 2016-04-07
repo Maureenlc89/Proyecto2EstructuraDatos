@@ -4,30 +4,33 @@
  *
  * Created on 4 de abril de 2016, 05:27 PM
  */
-
 #ifndef NODOPILA_H
 #define	NODOPILA_H
+#include <string>
 #include <iostream>
+using namespace std;
 
 class NodoPila {
 public:
-    NodoPila();
+    NodoPila(bool, double, string);
     virtual ~NodoPila();
-    int getLongitud();
     bool getEstado();
-    double getPrecio();
-    NodoPila * getCabeza();
-    void setLongitud(int);
+    double getPrecio(void);
+    string getTipoOcupado(void);
+    NodoPila * getSiguiente();
     void setEstado(bool);
     void setPrecio(double);
-    void setCabeza(NodoPila *);
+    void setTipoOcupado(string);
+    void setSiguiente(NodoPila *);
 private:
-    int longitud;
     bool estado;
     double precio;
-    NodoPila * cabeza;
+    string tipoOcupado;
+    NodoPila * siguiente;
 
 };
 
 #endif	/* NODOPILA_H */
+
+
 

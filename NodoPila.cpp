@@ -6,39 +6,47 @@
  */
 
 #include "NodoPila.h"
+#include <string>
+using namespace std;
 
-NodoPila::NodoPila() {
-   setLongitud(0);
-    setEstado(false);
-    setPrecio(0.0);
-    setCabeza(NULL);
+NodoPila::NodoPila(bool pestado, double precio, string tipoOcupado) {
+    setEstado(pestado);
+    setPrecio(precio);
+    setTipoOcupado(tipoOcupado);
+    setSiguiente(NULL);
 }
-
 
 NodoPila::~NodoPila() {
 }
 
-int NodoPila::getLongitud(){
-    return longitud;
-}
-bool NodoPila::getEstado(){
+bool NodoPila::getEstado() {
     return estado;
 }
-double NodoPila::getPrecio(){
+
+double NodoPila::getPrecio() {
     return precio;
 }
-NodoPila * NodoPila::getCabeza(){
-    return cabeza;
+
+string NodoPila::getTipoOcupado(void) {
+    return tipoOcupado;
 }
-void NodoPila::setLongitud(int plongitud){
-    longitud = plongitud;
+
+NodoPila * NodoPila::getSiguiente() {
+    return siguiente;
 }
-void NodoPila::setEstado(bool pestado){
+
+void NodoPila::setEstado(bool pestado) {
     estado = pestado;
 }
-void NodoPila::setPrecio(double pprecio){
+
+void NodoPila::setPrecio(double pprecio) {
     precio = pprecio;
 }
-void NodoPila::setCabeza(NodoPila * pcabeza){
-    cabeza = pcabeza;
+
+void NodoPila::setTipoOcupado(string ptipo) {
+    tipoOcupado = ptipo;
+}
+
+void NodoPila::setSiguiente(NodoPila * pcabeza) {
+    siguiente = pcabeza;
 }

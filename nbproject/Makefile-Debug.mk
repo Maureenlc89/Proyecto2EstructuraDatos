@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
+CND_PLATFORM=Cygwin_4.x-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -41,6 +41,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/NodoListaSimple.o \
 	${OBJECTDIR}/NodoMatriz.o \
 	${OBJECTDIR}/NodoPila.o \
+	${OBJECTDIR}/PilaAreaPreferencial.o \
 	${OBJECTDIR}/main.o
 
 
@@ -97,6 +98,11 @@ ${OBJECTDIR}/NodoPila.o: NodoPila.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NodoPila.o NodoPila.cpp
+
+${OBJECTDIR}/PilaAreaPreferencial.o: PilaAreaPreferencial.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PilaAreaPreferencial.o PilaAreaPreferencial.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
