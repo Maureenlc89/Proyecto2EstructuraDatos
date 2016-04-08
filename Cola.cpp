@@ -12,6 +12,7 @@
  */
 
 #include "Cola.h"
+#include "NodoListaSimple.h"
 
 Cola::Cola() {
     setLongitud(0);
@@ -26,7 +27,7 @@ Cola::~Cola() {
 }
 
 int Cola::getLongitud(void) {
-    
+
     return longitud;
 }
 
@@ -39,7 +40,7 @@ NodoCola * Cola::getFinal(void) {
 }
 
 void Cola::setLongitud(int plongitud) {
-    longitud =plongitud;
+    longitud = plongitud;
 }
 
 void Cola::setFrente(NodoCola*pfrente) {
@@ -47,10 +48,49 @@ void Cola::setFrente(NodoCola*pfrente) {
 }
 
 void Cola::setFinal(NodoCola* pfinal) {
+
     final = pfinal;
 }
 
-void Cola::insertarElemento(NodoCola*) {
+bool Cola::esVacia() {
+    return getFrente() == NULL;
+}
+
+void Cola::insertarElemento(NodoCola*pnodo) {
+
+
+
+    if (this->esVacia()) {
+
+        frente = pnodo;
+
+        final = pnodo;
+
+    } else {
+
+        final->setSiguiente(pnodo);
+
+        final = pnodo;
+
+    }
+
+    longitud++;
+
+}
+
+void Cola::mostrarCola() {
+
+    if (!esVacia()) {
+
+        NodoCola *aux = getFrente();
+        if (aux != NULL) {
+            cout<<"Tamaño de Cola de espera "<< getLongitud() << endl;
+            aux = aux->getSiguiente();
+        }
+
+
+
+    }
 
 }
 

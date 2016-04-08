@@ -20,6 +20,13 @@ NodoCola::NodoCola() {
      setLocalidad(0);
 }
 
+NodoCola::NodoCola(double pprecio,int plocalidad) {
+     setSiguiente(NULL);
+     setEstado(false);
+     setPrecio(pprecio);
+     setLocalidad(plocalidad);
+}
+
 NodoCola::NodoCola(const NodoCola& orig) {
     
 }

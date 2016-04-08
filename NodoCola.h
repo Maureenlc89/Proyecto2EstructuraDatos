@@ -19,6 +19,7 @@ using namespace std;
 class NodoCola {
 public:
     NodoCola();
+    NodoCola(double ,int );
     NodoCola(const NodoCola& orig);
     virtual ~NodoCola();
     NodoCola * getSiguiente();

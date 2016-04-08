@@ -29,6 +29,8 @@ public:
     void setFinal(NodoCola*);
     void insertarElemento(NodoCola*);
     void eliminarElemento(void);
+    void mostrarCola(void);
+    bool esVacia(void);
 private:
     int longitud;
     NodoCola * frente;

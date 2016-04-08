@@ -15,10 +15,12 @@
 #include <cstdlib>
 #include <iostream>
 #include "ListaLocalidadGeneral.h"
+#include "Cola.h"
 
 using namespace std;
 
 ListaLocalidadGeneral listaGeneral;
+Cola colaEsperaGeneral;
 int obtenerOpcion(void);
 bool ejecutar(int);
 void mostrarVIP();
@@ -51,6 +53,7 @@ int main(int argc, char** argv) {
         "5.Pagar entradas",
         "6.Liberar reservaciones",
         "7.Iniciar la función",
+        
         "8.Salir"
     };
 
@@ -95,6 +98,7 @@ bool ejecutar(int opcion) {
             cout << "Ingrese cuantos espacios desea reservar?" << endl;
             cin>>cantReservas;
             for (int i = 0; i < cantReservas; i++) {
+                
                 reservaExitosa = listaGeneral.reservarEspacio();
 
                 if (reservaExitosa == true) {
@@ -105,16 +109,23 @@ bool ejecutar(int opcion) {
                     cout << " " << endl;
                     cin>> colaEspera;
                     if (colaEspera == 1) {
-                        //hacer cola de espera
+                        NodoCola* nodoCola = new NodoCola(5000.00, 3);
+                        colaEsperaGeneral.insertarElemento(nodoCola);
+                        
                         cout << "en cola de espera" << endl;
                         cout << " " << endl;
                     }
                 }
             }
+            
+            cout << "INFORMACION COLA DE ESPERA " << endl;
+            colaEsperaGeneral.mostrarCola();
+            cout << "INFORMACION RESERVAS " << endl;
             listaGeneral.mostrarLista();
+            
             break;
         case 4:
-            
+
             double totalPagar;
             int pagar;
             cout << "Ingrese cuantas reservas desea pagar?" << endl;
