@@ -33,6 +33,7 @@ int main(int argc, char** argv) {
      * 33     * 2- Click derecho git : Add
      * 3- Click derecho git : Remote - Push
      * *** Pull sirve para actualizar el repositorio, baja cambios.
+     * Cambios
      */
 
 
