@@ -179,8 +179,7 @@ int main(int argc, char** argv) {
     /*
      * Pasos 
      * 1- Click derecho git : Commit
-3
-     * 33     * 2- Click derecho git : Add
+     * 2- Click derecho git : Add
      * 3- Click derecho git : Remote - Push
      * *** Pull sirve para actualizar el repositorio, baja cambios.
      * Cambios
@@ -307,24 +306,25 @@ bool ejecutar(int opcion) {
             break;
         case 7:
             //Liberar reservaciones 
-            // listaGeneral.liberarReservaciones();
+            listaGeneral.liberarReservaciones();
             break;
         case 8:
             //iniciar funcion
+            listaGeneral.iniciarFuncion(&colaEsperaGeneral);
             break;
         case 9:
-            //  .Informacion reservas localidad General",
-            //             cout << "INFORMACION RESERVAS " << endl;
-            //            listaGeneral.mostrarLista();
+            //Informacion reservas localidad General",
+            cout << "INFORMACION RESERVAS " << endl;
+            listaGeneral.mostrarLista();
             break;
         case 10:
             //Informacion cola espera localidad General
-//            if (colaEsperaGeneral.getLongitud() == 0) {
-//                cout << " No tenemos solicitudes de espera  " << endl;
-//            } else {
-//                colaEsperaGeneral.mostrarCola();
-//                cout << "" << endl;
-//            }
+            if (colaEsperaGeneral.getLongitud() == 0) {
+                cout << " No tenemos solicitudes de espera  " << endl;
+            } else {
+                colaEsperaGeneral.mostrarCola();
+                cout << "" << endl;
+            }
             break;
         case 11:
 
@@ -332,7 +332,11 @@ bool ejecutar(int opcion) {
 
             salir = true;
             break;
-
+            
+            case 12:
+                colaEsperaGeneral.eliminarElemento();
+                cout << "" << endl; 
+            break;
         default:
             salir = true;
             break;

@@ -21,7 +21,6 @@ public:
     NodoCola();
     NodoCola(double ,int );
     NodoCola(const NodoCola& orig);
-    virtual ~NodoCola();
     NodoCola * getSiguiente();
     bool getEstado();
     double getPrecio();

@@ -84,9 +84,9 @@ void Cola::mostrarCola() {
 
         NodoCola *aux = getFrente();
         if (aux != NULL) {
-            cout<<"En este momento tenemos "<< getLongitud() <<" Solicitudes en cola de espera."<<endl;
+            cout << "En este momento tenemos " << getLongitud() << " Solicitudes en cola de espera." << endl;
             aux = aux->getSiguiente();
-            
+
         }
 
 
@@ -96,4 +96,16 @@ void Cola::mostrarCola() {
 }
 
 void Cola::eliminarElemento(void) {
+
+    NodoCola * aux = getFrente();
+
+    if (!esVacia()) {
+    
+            setFrente(aux->getSiguiente());
+            setLongitud(longitud = longitud-1);
+            cout << "Longitud de cola  "<< getLongitud() << endl;
+            delete aux;
+    } 
+
+
 }

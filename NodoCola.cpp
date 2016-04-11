@@ -31,11 +31,10 @@ NodoCola::NodoCola(const NodoCola& orig) {
     
 }
 
-NodoCola::~NodoCola() {
-}
+
 
 NodoCola * NodoCola::getSiguiente() {
-
+    return siguiente;
 }
 
 bool NodoCola::getEstado() {

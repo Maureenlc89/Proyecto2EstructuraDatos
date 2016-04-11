@@ -48,7 +48,7 @@ bool ListaLocalidadGeneral::reservarEspacio() {
     if (longitud >= 50) {
         return false;
     } else {
-        NodoListaSimple* nuevo = new NodoListaSimple();
+        NodoListaSimple* nuevo = new NodoListaSimple(false,true);
 
         if (getCabeza() == NULL) {
             setCabeza(nuevo);
@@ -191,25 +191,57 @@ void ListaLocalidadGeneral::iniciarFuncion(Cola* objCola) {
 
     int longLista = getLongitud();
     int disponibles = 50 - longLista;
-
+    int longCola = objCola->getLongitud();
     NodoListaSimple * aux = getCabeza();
     NodoCola* auxCola = objCola->getFrente();
-    int longCola = objCola->getLongitud();
-    for (int i = 0; i < disponibles; i++) {
-
-        if (longLista < 50) {
-
-            reservarEspacio();
-            objCola->setFrente(auxCola->getSiguiente());
-            objCola->setLongitud(longCola--);
-
-
-        }
-
-
-
+    int iteraciones;
+    
+    if(disponibles >longCola){
+        iteraciones = longCola; 
+    }else{
+     iteraciones = disponibles;
+    }
+    
+    
+    if(disponibles == longCola){
+      iteraciones = disponibles;
+    }
+    
+    for(int i=0;i<iteraciones;i++){
+        
+            comprarBoleto();
+            objCola->eliminarElemento();
+        
+           
+        
     }
 
+}
 
+bool ListaLocalidadGeneral::comprarBoleto() {
+
+    if (longitud >= 50) {
+        return false;
+    } else {
+        NodoListaSimple* nuevo =  new NodoListaSimple(true,false);
+
+        if (getCabeza() == NULL) {
+            setCabeza(nuevo);
+        } else {
+            NodoListaSimple* aux = getCabeza();
+
+            while (aux->getSiguiente() != NULL) {
+                aux = aux->getSiguiente();
+            }
+            nuevo->setSiguiente(aux->getSiguiente());
+            nuevo->setAnterior(aux);
+            aux->setSiguiente(nuevo);
+     
+            
+        }
+
+        longitud++;
+        return true;
+    }
 
 }

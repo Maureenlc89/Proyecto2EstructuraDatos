@@ -13,6 +13,7 @@ using namespace std;
 class NodoListaSimple {
 public:
     NodoListaSimple(void);
+    NodoListaSimple(bool,bool);
     virtual ~NodoListaSimple();
     double getPrecio(void);
     bool getEstado(void);

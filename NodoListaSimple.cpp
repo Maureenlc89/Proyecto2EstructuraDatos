@@ -7,13 +7,21 @@
 
 #include "NodoListaSimple.h"
 
-NodoListaSimple::NodoListaSimple() {
+//NodoListaSimple::NodoListaSimple() {
+//    setPrecio(5500.00);
+//    setEstado(true);
+//    setSiguiente(NULL);
+//    setAnterior(NULL);
+//    setPagado(false);
+//}
+
+NodoListaSimple::NodoListaSimple(bool pago , bool estado) {
     setPrecio(5500.00);
-    setEstado(true);
+    setEstado(estado);
     setSiguiente(NULL);
     setAnterior(NULL);
-    setPagado(false);
-}
+    setPagado(pago);
+} 
 
 NodoListaSimple::~NodoListaSimple() {
 }

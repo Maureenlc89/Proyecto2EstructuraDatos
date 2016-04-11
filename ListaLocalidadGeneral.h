@@ -31,6 +31,7 @@ public:
     double obtenerMonto(int);
     void liberarReservaciones(void);
     void iniciarFuncion(Cola*);
+    bool comprarBoleto(void);
     
 
 private:
