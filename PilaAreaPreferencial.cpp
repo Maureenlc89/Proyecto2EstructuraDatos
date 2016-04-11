@@ -11,6 +11,7 @@
 #include <iostream>
 #include <cstddef>
 using namespace std;
+
 PilaAreaPreferencial::PilaAreaPreferencial() {
     longitud = 0;
     setTope(NULL);
@@ -107,7 +108,7 @@ bool PilaAreaPreferencial::liberarReservaciones(void) {
         int bandera = this->getLongitud();
         while (bandera != 0) {
             auxTope->setEstado(false);
-            auxTope = tope -> getSiguiente();
+            auxTope = auxTope -> getSiguiente();
             bandera--;
         }
     }
@@ -126,8 +127,19 @@ double PilaAreaPreferencial::iniciarFuncion(void) {
         while (bandera != 0) {
             precio = auxTope->getPrecio();
             totalZonaPreferencial += precio;
+            auxTope = auxTope ->getSiguiente();
             bandera--;
         }
     }
     return totalZonaPreferencial;
+}
+
+bool PilaAreaPreferencial::estaLlena(void) {
+
+    if (longitud == 10) {
+        return true;
+    } else {
+        return false;
+    }
+
 }

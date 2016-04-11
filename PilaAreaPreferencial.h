@@ -34,6 +34,7 @@ public:
     double iniciarFuncion(void); //Inicia la función y devuelve un total, se multiplica el total de espacios por el precio
     bool reservar(void);
     bool pagar(void);
+    bool estaLlena(void);
 
 private:
     int longitud;
