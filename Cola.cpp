@@ -84,8 +84,9 @@ void Cola::mostrarCola() {
 
         NodoCola *aux = getFrente();
         if (aux != NULL) {
-            cout<<"Tamaño de Cola de espera "<< getLongitud() << endl;
+            cout<<"En este momento tenemos "<< getLongitud() <<" Solicitudes en cola de espera."<<endl;
             aux = aux->getSiguiente();
+            
         }
 
 

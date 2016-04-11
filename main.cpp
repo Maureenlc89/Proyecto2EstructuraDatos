@@ -307,24 +307,24 @@ bool ejecutar(int opcion) {
             break;
         case 7:
             //Liberar reservaciones 
-            // listaGeneral.liberarReservaciones();
+            listaGeneral.liberarReservaciones();
             break;
         case 8:
             //iniciar funcion
             break;
         case 9:
             //  .Informacion reservas localidad General",
-            //             cout << "INFORMACION RESERVAS " << endl;
-            //            listaGeneral.mostrarLista();
+            cout << "INFORMACION RESERVAS " << endl;
+            listaGeneral.mostrarLista();
             break;
         case 10:
             //Informacion cola espera localidad General
-//            if (colaEsperaGeneral.getLongitud() == 0) {
-//                cout << " No tenemos solicitudes de espera  " << endl;
-//            } else {
-//                colaEsperaGeneral.mostrarCola();
-//                cout << "" << endl;
-//            }
+            if (colaEsperaGeneral.getLongitud() == 0) {
+                cout << " No tenemos solicitudes de espera  " << endl;
+            } else {
+                colaEsperaGeneral.mostrarCola();
+                cout << "" << endl;
+            }
             break;
         case 11:
 

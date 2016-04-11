@@ -14,7 +14,7 @@
 #ifndef LISTALOCALIDADGENERAL_H
 #define LISTALOCALIDADGENERAL_H
 #include "NodoListaSimple.h"
-
+#include "Cola.h"
 class ListaLocalidadGeneral {
 public:
     ListaLocalidadGeneral();
@@ -29,6 +29,9 @@ public:
     void mostrarLista();
     void pagarReservas(int);
     double obtenerMonto(int);
+    void liberarReservaciones(void);
+    void iniciarFuncion(Cola*);
+    
 
 private:
     int longitud;

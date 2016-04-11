@@ -51,18 +51,17 @@ bool ListaLocalidadGeneral::reservarEspacio() {
         NodoListaSimple* nuevo = new NodoListaSimple();
 
         if (getCabeza() == NULL) {
-
-            nuevo->setSiguiente(getCabeza());
             setCabeza(nuevo);
         } else {
 
-            NodoListaSimple* anterior = getCabeza();
+            NodoListaSimple* aux = getCabeza();
 
-            while (anterior->getSiguiente() != NULL) {
-                anterior = anterior->getSiguiente();
+            while (aux->getSiguiente() != NULL) {
+                aux = aux->getSiguiente();
             }
-            nuevo->setSiguiente(anterior->getSiguiente());
-            anterior ->setSiguiente(nuevo);
+            nuevo->setSiguiente(aux->getSiguiente());
+            nuevo->setAnterior(aux);
+            aux->setSiguiente(nuevo);
         }
 
         longitud++;
@@ -109,8 +108,9 @@ void ListaLocalidadGeneral::mostrarLista() {
     }
 
 }
-double ListaLocalidadGeneral::obtenerMonto(int cantReservasPorPagar){
-     NodoListaSimple* aux = getCabeza();
+
+double ListaLocalidadGeneral::obtenerMonto(int cantReservasPorPagar) {
+    NodoListaSimple* aux = getCabeza();
     double total = aux->getPrecio() * cantReservasPorPagar;
     return total;
 
@@ -128,12 +128,12 @@ void ListaLocalidadGeneral::pagarReservas(int cantReservasPorPagar) {
 
                 if (aux->getPagado() == true) {
                     aux = aux->getSiguiente();
-                    cantReservasPorPagar=cantReservasPorPagar+1;
+                    cantReservasPorPagar = cantReservasPorPagar + 1;
                 } else {
                     aux->setEstado(false);
                     aux->setPagado(true);
                     aux = aux->getSiguiente();
-                    
+
                 }
             }
         } else {
@@ -141,5 +141,75 @@ void ListaLocalidadGeneral::pagarReservas(int cantReservasPorPagar) {
         }
 
     }
+
+}
+
+void ListaLocalidadGeneral::liberarReservaciones(void) {
+
+    int longi = getLongitud();
+    NodoListaSimple * aux = getCabeza();
+
+    for (int i = 0; i < longi; i++) {
+
+        if (aux->getPagado() == true) {
+            aux = aux->getSiguiente();
+
+        } else {
+
+            if (aux->getAnterior() == NULL) {
+
+                aux->getSiguiente()->setAnterior(NULL);
+                aux = aux->getSiguiente();
+                setCabeza(aux);
+
+            } else {
+
+
+                if (aux->getSiguiente() != NULL) {
+                    aux->getAnterior()->setSiguiente(aux->getSiguiente());
+                    aux->getSiguiente()->setAnterior(aux->getAnterior());
+                } else {
+                    aux->getAnterior()->setSiguiente(aux->getSiguiente());
+                }
+
+
+            }
+            delete aux;
+            longitud--;
+            if (aux->getSiguiente() != NULL) {
+                aux = aux->getSiguiente();
+            }
+
+
+        }
+
+    }
+
+}
+
+void ListaLocalidadGeneral::iniciarFuncion(Cola* objCola) {
+
+    int longLista = getLongitud();
+    int disponibles = 50 - longLista;
+
+    NodoListaSimple * aux = getCabeza();
+    NodoCola* auxCola = objCola->getFrente();
+    int longCola = objCola->getLongitud();
+    for (int i = 0; i < disponibles; i++) {
+
+        if (longLista < 50) {
+
+            reservarEspacio();
+            objCola->setFrente(auxCola->getSiguiente());
+            objCola->setLongitud(longCola--);
+
+
+        }
+
+
+
+    }
+
+
 
 }
