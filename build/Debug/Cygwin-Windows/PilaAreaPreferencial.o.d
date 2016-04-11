@@ -1,4 +1,4 @@
-build/Debug/Cygwin_4.x-Windows/PilaAreaPreferencial.o: \
+build/Debug/Cygwin-Windows/PilaAreaPreferencial.o: \
  PilaAreaPreferencial.cpp PilaAreaPreferencial.h NodoPila.h
 
 PilaAreaPreferencial.h:

@@ -192,7 +192,7 @@ int main(int argc, char** argv) {
     int opcion;
     string resul;
     bool salir = false;
-    string menu[9] = {
+    string menu[11] = {
 
         "1.Reservar VIP ",
         "2.Reservar Preferencial ",
@@ -210,7 +210,7 @@ int main(int argc, char** argv) {
 
 
     do {
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 10; i++) {
 
             cout << menu[i] << endl;
         }
@@ -307,24 +307,24 @@ bool ejecutar(int opcion) {
             break;
         case 7:
             //Liberar reservaciones 
-            listaGeneral.liberarReservaciones();
+            // listaGeneral.liberarReservaciones();
             break;
         case 8:
             //iniciar funcion
             break;
         case 9:
             //  .Informacion reservas localidad General",
-            cout << "INFORMACION RESERVAS " << endl;
-            listaGeneral.mostrarLista();
+            //             cout << "INFORMACION RESERVAS " << endl;
+            //            listaGeneral.mostrarLista();
             break;
         case 10:
             //Informacion cola espera localidad General
-            if (colaEsperaGeneral.getLongitud() == 0) {
-                cout << " No tenemos solicitudes de espera  " << endl;
-            } else {
-                colaEsperaGeneral.mostrarCola();
-                cout << "" << endl;
-            }
+//            if (colaEsperaGeneral.getLongitud() == 0) {
+//                cout << " No tenemos solicitudes de espera  " << endl;
+//            } else {
+//                colaEsperaGeneral.mostrarCola();
+//                cout << "" << endl;
+//            }
             break;
         case 11:
 
