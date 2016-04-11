@@ -57,55 +57,31 @@ bool Cola::esVacia() {
 }
 
 void Cola::insertarElemento(NodoCola*pnodo) {
-
-
-
     if (this->esVacia()) {
-
         frente = pnodo;
-
         final = pnodo;
-
     } else {
-
         final->setSiguiente(pnodo);
-
         final = pnodo;
-
     }
-
     longitud++;
-
 }
 
 void Cola::mostrarCola() {
-
     if (!esVacia()) {
-
         NodoCola *aux = getFrente();
         if (aux != NULL) {
             cout << "En este momento tenemos " << getLongitud() << " Solicitudes en cola de espera." << endl;
             aux = aux->getSiguiente();
-
         }
-
-
-
     }
-
 }
 
 void Cola::eliminarElemento(void) {
-
     NodoCola * aux = getFrente();
-
     if (!esVacia()) {
-    
-            setFrente(aux->getSiguiente());
-            setLongitud(longitud = longitud-1);
-            cout << "Longitud de cola  "<< getLongitud() << endl;
-            delete aux;
-    } 
-
-
+        setFrente(aux->getSiguiente());
+        setLongitud(longitud = longitud - 1);
+        delete aux;
+    }
 }

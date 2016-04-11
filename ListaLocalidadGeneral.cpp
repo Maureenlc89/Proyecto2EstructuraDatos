@@ -15,10 +15,8 @@
 #include "NodoListaSimple.h"
 
 ListaLocalidadGeneral::ListaLocalidadGeneral() {
-
     setLongitud(0);
     setCabeza(NULL);
-
 }
 
 ListaLocalidadGeneral::ListaLocalidadGeneral(const ListaLocalidadGeneral& orig) {
@@ -188,7 +186,8 @@ void ListaLocalidadGeneral::liberarReservaciones(void) {
 }
 
 void ListaLocalidadGeneral::iniciarFuncion(Cola* objCola) {
-
+    liberarReservaciones();
+    
     int longLista = getLongitud();
     int disponibles = 50 - longLista;
     int longCola = objCola->getLongitud();
@@ -206,15 +205,11 @@ void ListaLocalidadGeneral::iniciarFuncion(Cola* objCola) {
     if(disponibles == longCola){
       iteraciones = disponibles;
     }
-    
-    for(int i=0;i<iteraciones;i++){
-        
+    for(int i=0;i<iteraciones;i++){   
             comprarBoleto();
             objCola->eliminarElemento();
-        
-           
-        
-    }
+    }    
+    obtenerRecaudacionLocalidadGeneral();
 
 }
 
@@ -236,12 +231,23 @@ bool ListaLocalidadGeneral::comprarBoleto() {
             nuevo->setSiguiente(aux->getSiguiente());
             nuevo->setAnterior(aux);
             aux->setSiguiente(nuevo);
-     
-            
         }
-
         longitud++;
         return true;
     }
+}
+
+
+
+void ListaLocalidadGeneral::obtenerRecaudacionLocalidadGeneral(){
+   
+    cout<<"INFORMACION LOCALIDAD GENERAL "<<endl;
+    NodoListaSimple* aux = getCabeza(); 
+    double montoRecaudado = 0.0;
+    for(int i=0;i<getLongitud();i++){
+        montoRecaudado += aux->getPrecio();
+    }
+    cout<<"Monto total recaudado localidad General  :"<<  montoRecaudado  <<endl;
+    cout<<"Cantidad de personas en localidad general : "<<  getLongitud()<<endl;
 
 }

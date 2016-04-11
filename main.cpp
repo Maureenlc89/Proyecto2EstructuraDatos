@@ -191,7 +191,7 @@ int main(int argc, char** argv) {
     int opcion;
     string resul;
     bool salir = false;
-    string menu[11] = {
+    string menu[12] = {
 
         "1.Reservar VIP ",
         "2.Reservar Preferencial ",
@@ -203,13 +203,14 @@ int main(int argc, char** argv) {
         "8.Iniciar la función",
         "9.Informacion reservas localidad General",
         "10.Informacion cola espera localidad General",
-        "11.Salir"
+        "11.Comprar boleto General",
+        "12.Salir"
     };
 
 
 
     do {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 11; i++) {
 
             cout << menu[i] << endl;
         }
@@ -233,6 +234,9 @@ bool ejecutar(int opcion) {
 
     //Variables
     bool reserva;
+    int cantReservas;
+    bool reservaExitosa;
+
     switch (opcion) {
 
         case 1:
@@ -251,8 +255,8 @@ bool ejecutar(int opcion) {
             break;
         case 3:
             cout << " << Bienvenido localidad General >>" << endl;
-            int cantReservas;
-            bool reservaExitosa;
+            cantReservas;
+            reservaExitosa;
             int colaEspera;
             cout << "Ingrese cuantos espacios desea reservar?" << endl;
             cin>>cantReservas;
@@ -272,6 +276,7 @@ bool ejecutar(int opcion) {
                     }
                 }
             }
+              cout << " " << endl;
 
             break;
         case 4:
@@ -326,24 +331,38 @@ bool ejecutar(int opcion) {
                 cout << "" << endl;
             }
             break;
+
+
         case 11:
+            cout << " << Bienvenido localidad General >>" << endl;
+            cout << "Ingrese cuantos espacios desea reservar?" << endl;
+            cin>>cantReservas;
+            for (int i = 0; i < cantReservas; i++) {
+                reservaExitosa = listaGeneral.comprarBoleto();
+                if (reservaExitosa == true) {
+                    cout << "La compra " << i + 1 << " se ha realizado exitosamente " << endl;
+                } else {
+                    cout << "La compra " << i + 1 << " no se pudo realizar no hay espacios disponibles " << endl;
+                    cout << " " << endl;
 
+                }
+            }
+            break;
+        case 12:
             cout << "<< Ha salido del sistema >>" << endl;
-
             salir = true;
             break;
-            
-            case 12:
-                colaEsperaGeneral.eliminarElemento();
-                cout << "" << endl; 
-            break;
+
         default:
             salir = true;
             break;
 
 
+
+
+            return salir;
+
     }
-    return salir;
 }
 
 void mostrarVIP() {

@@ -32,6 +32,7 @@ public:
     void liberarReservaciones(void);
     void iniciarFuncion(Cola*);
     bool comprarBoleto(void);
+    void obtenerRecaudacionLocalidadGeneral(void);
     
 
 private:
