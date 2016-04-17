@@ -25,8 +25,21 @@ Cola colaEsperaGeneral;
 int obtenerOpcion(void);
 bool ejecutar(int);
 void mostrarVIP();
+void liberarReservacionesVIP();
+void ComprarEntradaVIP();
 
-
+int filaSelected;
+int columnaSelected;
+string filas [6] = {"0", "1", "2", "3", "4", "5"};
+string columnas[2] = {"1", "2"};
+string vip [6][2] = {
+    {"0", "0"},
+    {"0", "0"},
+    {"0", "0"},
+    {"0", "0"},
+    {"0", "0"},
+    {"0", "0"}
+};
 
 
 //*********Inicia Area preferencial*********
@@ -242,6 +255,7 @@ bool ejecutar(int opcion) {
         case 1:
             cout << "VIP" << endl;
             mostrarVIP();
+
             break;
         case 2:
             reservasAreaPreferencial();
@@ -276,11 +290,12 @@ bool ejecutar(int opcion) {
                     }
                 }
             }
-              cout << " " << endl;
+            cout << " " << endl;
 
             break;
         case 4:
-
+            ComprarEntradaVIP();
+            //liberarReservacionesVIP();
             break;
 
         case 5:
@@ -312,6 +327,7 @@ bool ejecutar(int opcion) {
         case 7:
             //Liberar reservaciones 
             listaGeneral.liberarReservaciones();
+            liberarReservacionesVIP();
             break;
         case 8:
             //iniciar funcion
@@ -367,15 +383,7 @@ bool ejecutar(int opcion) {
 
 void mostrarVIP() {
 
-    int filas [6] = {0, 1, 2, 3, 4, 5};
-    int columnas[2] = {1, 2};
-    int vip [6][2] = {
-        {0, 0},
-        {0, 0},
-        {0, 0},
-        {0, 0},
-        {0, 0}
-    };
+
 
     for (int i = 0; i < 6; i++) {
 
@@ -392,12 +400,89 @@ void mostrarVIP() {
 
     }
 
-    int filaSelected;
-    int columnaSelected;
 
     cout << "Ingrese la fila de la posicion que desea reservar" << endl;
     cin >>filaSelected;
     cout << "Ingrese la columna de la posicion que desea reservar" << endl;
     cin >>columnaSelected;
+
+
+    if (filaSelected > 5 || columnaSelected > 2 || filaSelected < 0 || columnaSelected < 0) {
+
+        cout << "Posicion invalida " << endl;
+
+
+    } else {
+        if (vip[filaSelected][columnaSelected - 1] != "0") {
+            cout << "Posicion no disponible " << endl;
+
+        } else {
+            vip[filaSelected][columnaSelected - 1] = "R";
+        }
+    }
+
+
+
+}
+
+void liberarReservacionesVIP() {
+
+    for (int i = 0; i < 6; i++) {
+
+        for (int j = 0; j < 2; j++) {
+
+            if (vip[i][j] == "R") {
+                vip[i][j] = "0";
+            }
+
+
+        }
+
+
+
+    }
+}
+
+void ComprarEntradaVIP() {
+
+
+    for (int i = 0; i < 6; i++) {
+
+        vip[0][0] = filas[i];
+        cout << vip[0][0];
+
+        for (int j = 0; j < 2; j++) {
+            vip[0][j] = columnas[j];
+
+            cout << "|" << vip[i][j];
+        }
+
+        cout << "|" << endl;
+
+    }
+
+   
+
+    cout << "Ingrese la fila de la posicion que desea comprar" << endl;
+    cin >>filaSelected;
+    cout << "Ingrese la columna de la posicion que desea comprar" << endl;
+    cin >>columnaSelected;
+
+
+    if (filaSelected > 5 || columnaSelected > 2 || filaSelected < 0 || columnaSelected < 0) {
+
+        cout << "Posicion invalida " << endl;
+
+
+    } else {
+        if (vip[filaSelected][columnaSelected - 1] == "0"||vip[filaSelected][columnaSelected - 1] == "R") {
+             vip[filaSelected][columnaSelected - 1] = "C";
+            
+
+        } else if(vip[filaSelected][columnaSelected - 1] == "C"){
+           cout << "Posicion no disponible " << endl;
+        }
+    }
+
 
 }
